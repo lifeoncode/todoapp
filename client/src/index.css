@@ -61,3 +61,34 @@ button {
   display: inline-block;
   padding: 10px 20px;
 }
+
+.modal {
+  padding: 20px;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.593);
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  width: 40%;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.modal.hide {
+  transform: scale(0);
+}
+
+.modal .fa-close {
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.modal input,
+.modal button {
+  display: block;
+  width: 100%;
+  outline: none;
+}

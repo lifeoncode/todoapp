@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import EditTodo from "./EditTodo";
 
 const Todolist = () => {
   // component state
@@ -40,7 +41,7 @@ const Todolist = () => {
         <div className="task" key={task.todo_id}>
           <p>{task.description}</p>
           <div className="buttons">
-            <button className="btn edit">edit</button>
+            <EditTodo task={task} />
             <button
               className="btn delete"
               onClick={() => {
