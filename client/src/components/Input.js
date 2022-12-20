@@ -1,19 +1,20 @@
 import { useState } from "react";
 
 const Input = () => {
+  // component state
   const [description, setDescription] = useState("");
-
+  // function to make post request - persists new data to DB
   const addNewTodo = async (e) => {
     e.preventDefault();
     try {
       const body = { description };
-      const response = await fetch("http://localhost:5000/todos", {
+      await fetch("http://localhost:5000/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      const responseData = await response.json();
-      console.log(responseData);
+      // refresh page when data is persisted
+      window.location = "/";
     } catch (err) {
       console.error("womthing went wrong:", err.message);
     }

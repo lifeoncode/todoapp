@@ -1,4 +1,5 @@
 import Input from "./components/Input";
+import Todolist from "./components/Todolist";
 
 function App() {
   return (
@@ -8,6 +9,10 @@ function App() {
           <Input />
         </div>
       </header>
+
+      <div className="container tasks">
+        <Todolist />
+      </div>
     </>
   );
 }
