@@ -4,26 +4,40 @@ const EditTodo = ({ task }) => {
   const [description, setDescription] = useState(task.description);
 
   // function to update a todo task
-  const updateTodoTask = (taskID) => {
-    console.log(`updating ${taskID}...`);
+  const updateTodoTask = async () => {
+    try {
+      const body = { description };
+      await fetch(`http://localhost:5000/todos/${task.todo_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      window.location = "/";
+    } catch (err) {
+      console.error("something went wrong:", err.message);
+    }
   };
 
   return (
     <>
+      {/* edit task button */}
       <button
         className="btn edit"
         onClick={() => {
-          document.querySelector(".modal").classList.remove("hide");
+          document.querySelector(`#id${task.todo_id}`).classList.remove("hide");
         }}
       >
         edit
       </button>
-      <div className="modal hide">
+
+      {/* modal container */}
+      <div className="modal hide" id={`id${task.todo_id}`}>
         <h3>Edit todo task</h3>
         <i
           className="fas fa-close"
           onClick={() => {
-            document.querySelector(".modal").classList.add("hide");
+            document.querySelector(`#id${task.todo_id}`).classList.add("hide");
+            setDescription(task.description);
           }}
         ></i>
         <input
@@ -34,7 +48,9 @@ const EditTodo = ({ task }) => {
             setDescription(e.target.value);
           }}
         />
-        <button type="submit">save</button>
+        <button type="submit" onClick={updateTodoTask}>
+          save
+        </button>
       </div>
     </>
   );

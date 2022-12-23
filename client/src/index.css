@@ -71,7 +71,7 @@ button {
   left: 30%;
   width: 40%;
   z-index: 2;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .modal.hide {
