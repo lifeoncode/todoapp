@@ -98,3 +98,7 @@ button {
   padding: 5px;
   cursor: pointer;
 }
+
+input.error {
+  border: 2px solid red;
+}

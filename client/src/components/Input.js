@@ -6,6 +6,12 @@ const Input = () => {
   // function to make post request - persists new data to DB
   const addNewTodo = async (e) => {
     e.preventDefault();
+    // if input field is empty
+    if (!description.trim()) {
+      document.querySelector("input").classList.add("error");
+      return false;
+    }
+
     try {
       const body = { description };
       await fetch("http://localhost:5000/todos", {
@@ -28,6 +34,9 @@ const Input = () => {
           placeholder="Enter task to do..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          onFocus={(e) => {
+            e.target.classList.remove("error");
+          }}
         />
         <button type="submit">add</button>
       </form>
