@@ -33,13 +33,20 @@ const EditTodo = ({ task }) => {
       {/* modal container */}
       <div className="modal hide" id={`id${task.todo_id}`}>
         <h3>Edit todo task</h3>
-        <i
-          className="fas fa-close"
+        <div
+          className="close-btn"
           onClick={() => {
             document.querySelector(`#id${task.todo_id}`).classList.add("hide");
             setDescription(task.description);
           }}
-        ></i>
+        >
+          <i
+            className="fas fa-close"
+            // no need for click event on icon because the click event will bubble to parent
+            // thus closing the edit component
+          ></i>
+        </div>
+
         <input
           type="text"
           placeholder="enter text"
