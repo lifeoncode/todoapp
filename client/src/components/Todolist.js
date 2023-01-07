@@ -42,14 +42,13 @@ const Todolist = () => {
           <p>{task.description}</p>
           <div className="buttons">
             <EditTodo task={task} />
-            <button
-              className="btn delete"
+            <i
+              className="btn delete fa-solid fa-trash"
+              title="delete"
               onClick={() => {
                 deleteTask(task.todo_id);
               }}
-            >
-              delete
-            </button>
+            ></i>
           </div>
         </div>
       ))}

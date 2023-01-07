@@ -38,7 +38,7 @@ const Input = () => {
             e.target.classList.remove("error");
           }}
         />
-        <button type="submit">add</button>
+        <button type="submit">save task</button>
       </form>
     </>
   );

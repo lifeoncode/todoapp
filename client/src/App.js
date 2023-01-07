@@ -1,11 +1,13 @@
+import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Todolist from "./components/Todolist";
 
 function App() {
   return (
     <>
-      <header>
+      <header className="header">
         <div className="container">
+          <Nav />
           <Input />
         </div>
       </header>

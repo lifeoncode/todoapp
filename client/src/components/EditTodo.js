@@ -21,14 +21,14 @@ const EditTodo = ({ task }) => {
   return (
     <>
       {/* edit task button */}
-      <button
-        className="btn edit"
+
+      <i
+        className="btn edit fa-solid fa-file-pen"
+        title="edit"
         onClick={() => {
           document.querySelector(`#id${task.todo_id}`).classList.remove("hide");
         }}
-      >
-        edit
-      </button>
+      ></i>
 
       {/* modal container */}
       <div className="modal hide" id={`id${task.todo_id}`}>
@@ -47,15 +47,16 @@ const EditTodo = ({ task }) => {
           ></i>
         </div>
 
-        <input
+        <textarea
+          className="input"
           type="text"
           placeholder="enter text"
           value={description}
           onChange={(e) => {
             setDescription(e.target.value);
           }}
-        />
-        <button type="submit" onClick={updateTodoTask}>
+        ></textarea>
+        <button type="submit" className="btn" onClick={updateTodoTask}>
           save
         </button>
       </div>
